@@ -1,0 +1,28 @@
+\section{Related work}
+\label{sec:related_work}
+
+This project is inspired by PrEsto~\cite{PrEsto}, which accelerates power measurement using FPGA. 
+It generates linear power models using linear regression, and then the model is mapped onto FPGA. 
+However, designers should provide the important signals to the power model generators, and the power calculation logics are hardcoded in FPGA. 
+Our approach differs in that the power model generator selects the important signals and we employ a counter-based method to calculate power consumption of the systems.
+
+Bogliolo \textit{et al.}~\cite{Bogliolo2000} suggests regression-based RTL power modeling. 
+They exploit linear regression to approximate the design's power consumption with RTL signal activities.
+However, this approach cannot be applied to complex designs because it does not reduce the signal list to be watched.
+Moreover, it only considers the signals in the border of macro blocks, which attributes to its inaccuracy.
+
+There are several papers about FPGA-accelerated simulations.~\cite{Protoflex,Fast,RAMPGold,FAME,HAsim}
+These works show that using FPGAs can reduce the architectural simulation dramatically.
+Our project also uses FPGA simulation to accelerated power analysis
+
+Isci \textit{et al.}~\cite{Isci2003} suggests a counter-based method to calculate the system’s power. 
+However, it is limited to the real processor, Pentium 4, and thus, not flexible for any other processors. 
+Moreover, it has to read the fixed activity counters to calculate power numbers. 
+Our approach can be applied to general processor designs and generates activity counters for any important signals.
+
+There are a bunch of attempts to accelerate power measurement of DSP designs~\cite{Coburn2005,Atienza2006,Ghodrat2007}.
+However, these are not scalable, so it cannot be applied to complex designs' power measurement.
+
+Bhattacharjee \textit{et al.}~\cite{Bhattacharjee2008} proposed a counter-based method using FPGA emulation. 
+This method counts specific events of the processor to calculate power, which requires architectural intuition. 
+For this reason, it is not applicable to general logic designs in contrast to our approach.

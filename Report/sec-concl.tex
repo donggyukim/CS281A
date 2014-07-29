@@ -1,0 +1,10 @@
+\section{Conclusion}
+In this paper, we propose FPGA-accelerated power simulation with linear power modeling,
+which enables fast and accurate power analysis.
+The linear power model not only approximates the power consumption with the RTL signal swathing activities,
+but reduces the signal set to be watched. 
+FPGA simulation make it possible to obtain the selected signal activities quickly.
+The power model and the activity counter values from FPGA simulation are used for the detailed power analysis of the target design.
+
+In the future, we will add counters to the target design and evaluate the linear power model with signal activities from FPGA simulation. 
+We also plan to model DRAM power with event counters and integrate it with the counter structure to analyze the entire SoC power.

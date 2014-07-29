@@ -1,0 +1,18 @@
+\section{Introduction}
+
+As power dissipation becomes a major concern in a variety of computer systems, measuring power consumption becomes essential for hardware and software designs. 
+However, it has been very difficult to obtain powers numbers accurately as well as quickly. 
+RTL or gate-level simulation can provide reliable power numbers, but they are notoriously slow. 
+Analytic methods can provide power numbers quickly and readily, but they are inaccurate and not adequate for detailed power analysis. 
+Cycle accurate software power simulators such as Wattch~\cite{Wattch} and McPAT~\cite{McPat} have been favored by computer architects. 
+However, they are not only time-consuming, but also less accurate.
+
+In this project, we will propose FPGA-accelerated power simulators.  
+This makes it possible to measure power consumption of the systems much more quickly and accurately. 
+There are two major steps for fast power simulations, power model generation and counter structure generation. 
+Fast power simulation starts from the Chisel designs which are converted into RTL by the Chisel verilog backend.
+The power model generator approximates the design's power consumption using RTL signal activities.
+It also reduce the signal list to be counted in FPGA simulation.
+Then, counter structure generator adds the activity counters for the selected signals in the power model.
+The design with the activity counters is ported to and simulated on FPGA.
+With the power model, counter values from FPGA simulation provide the accurate and fast power analysis for the target design.
